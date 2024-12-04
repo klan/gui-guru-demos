@@ -1,4 +1,13 @@
 # Popover
 
-- popover in html
-- popover in js
+Although you can create a a model-like experience with `popover="auto"` it doesn't provide any semantics on its own. Here's some of the **key differences**: 
+|`<dialog>` element|`[popover]` attribute|
+|--|--|
+|<ul><li>Makes the rest of the page inert</li><li>Requires explicit user interaction to close (as a modal)</li><li>Semantically represents an interactive component</li></ul>|<ul><li>Does not make the rest of the page inert</li><li>Supports "light-dismiss" and does not block</li><li>Does not provide any semantics</li></ul>|
+
+So, should dialog and popover never mix? No, turning a dialog into a popover by using `<dialog popover>` is perfectly valid. Here's some examples of **when to use what**:
+|`<dialog>`|`[popover]`|`<dialog popover>`|
+|--|--|--|
+|<ul><li>Confirm modal</li><li>Terms and conditions, where user interaction is required as accept</li></ul>|<ul><li>Tooltips (that scrolls with the page)</li><li>Action menus</li><li>Toast/notification</li><li>Date/time/color/content-picker</li><li>Informational modal/drawer</li></ul>|<ul><li>A custom informational modal/drawer</li></ul>|
+
+Choosing the right solution is not about how the UI looks, eg. is it a drawer or not, but how a user should interact with it. You can start hacking a dialog to support light-dismiss, but it's likely not want you want.
