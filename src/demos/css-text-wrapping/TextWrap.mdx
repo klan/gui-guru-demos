@@ -1,0 +1,18 @@
+import { Meta, Canvas } from '@storybook/blocks';
+import * as TextWrapStories from '../../ui/components/Text/TextWrap.stories';
+
+<Meta title="Text wrap" />
+
+## Popover
+
+#### `text-wrap=wrap` (default)
+<Canvas of={TextWrapStories.Default} />
+
+#### `text-wrap=balance`
+<Canvas of={TextWrapStories.Balance} />
+
+### Limitations
+It has a performance cost, so to mitigate this:
+- it only works on 6 or below lines of text
+- shouldn't be used on large paragraphs
+<Canvas of={TextWrapStories.Limitation} />
